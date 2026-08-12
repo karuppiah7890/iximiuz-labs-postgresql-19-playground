@@ -17,3 +17,5 @@ Dockerfile.debug
 .dockerignore
 
 CONTRIBUTING.md
+
+references.md
