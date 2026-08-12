@@ -30,7 +30,7 @@ RUN echo 'export PATH="$PATH:/usr/local/pgsql/bin/"' | sudo tee -a /home/laboran
 WORKDIR /home/laborant
 
 RUN { echo "Welcome to iximiuz Labs' PostgreSQL 19 Playground! 🚀\n"; \
-      echo "Run \`psql\` to connect to the PostgreSQL server\n"; \
+      echo "Run \`psql -U postgres\` to connect to the PostgreSQL server\n"; \
       echo "This is also a Ubuntu Playground! Details below!\n"; \
       cat $HOME/.welcome; \
     } > $HOME/.new_welcome && mv $HOME/.new_welcome $HOME/.welcome
