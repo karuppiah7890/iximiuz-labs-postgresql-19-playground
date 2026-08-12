@@ -15,3 +15,5 @@ Dockerfile.debug
 .vscode
 
 .dockerignore
+
+CONTRIBUTING.md
