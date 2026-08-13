@@ -2,17 +2,16 @@ kind: playground
 name: postgresql-19-e92a0d56
 base: flexbox
 title: PostgreSQL 19
-description: PostgreSQL 19 Beta 1. The World's Most Advanced Open Source Relational Database
+description: The World's Most Advanced Open Source Relational Database
 cover: /content/files/playgrounds/postgresql-19-e92a0d56/__static__/postgresql.png
 categories:
     - linux
     - networking
 markdown: |-
-    PostgreSQL 19 Beta 1. The World's Most Advanced Open Source Relational Database
+    PostgreSQL 19 Beta 2. The World's Most Advanced Open Source Relational Database
 
-    PostgreSQL 19 Beta 1 Release - https://www.postgresql.org/about/news/postgresql-19-beta-1-released-3313/
+    PostgreSQL 19 Beta 2 Release News - https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/
 
-    Coming Soon: We'll soon update this playground to include PostgreSQL 19 Beta 2 which got released recently - https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/
 playground:
     networks:
         - name: local
@@ -24,7 +23,7 @@ playground:
             - name: laborant
               default: true
           drives:
-            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.1
+            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.2
               mount: /
           network:
             interfaces:
