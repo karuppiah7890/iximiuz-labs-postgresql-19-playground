@@ -5,11 +5,11 @@ WORKDIR /home/laborant
 RUN sudo apt update \
     && sudo apt install -y make pkg-config gcc flex bison libedit-dev libedit2 libreadline-dev perl libperl-dev tcl zlib1g-dev libicu-dev gettext python3 python3-pip python3-venv python3-dev libpython3-dev libpython3.12 docbook-xml docbook-xsl libxml2-utils xsltproc fop
 
-RUN wget https://ftp.postgresql.org/pub/source/v19beta1/postgresql-19beta1.tar.gz
+RUN wget https://ftp.postgresql.org/pub/source/v19beta2/postgresql-19beta2.tar.gz
 
-RUN tar -xvzf postgresql-19beta1.tar.gz
+RUN tar -xvzf postgresql-19beta2.tar.gz
 
-WORKDIR /home/laborant/postgresql-19beta1
+WORKDIR /home/laborant/postgresql-19beta2
 
 RUN ./configure
 
