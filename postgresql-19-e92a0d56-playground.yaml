@@ -1,0 +1,63 @@
+kind: playground
+name: postgresql-19-e92a0d56
+base: flexbox
+title: PostgreSQL 19
+description: PostgreSQL 19 Beta 1. The World's Most Advanced Open Source Relational Database
+cover: /content/files/playgrounds/postgresql-19-e92a0d56/__static__/postgresql.png
+categories:
+    - linux
+    - networking
+markdown: |-
+    PostgreSQL 19 Beta 1. The World's Most Advanced Open Source Relational Database
+
+    PostgreSQL 19 Beta 1 Release - https://www.postgresql.org/about/news/postgresql-19-beta-1-released-3313/
+
+    Coming Soon: We'll soon update this playground to include PostgreSQL 19 Beta 2 which got released recently - https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/
+playground:
+    networks:
+        - name: local
+          subnet: 172.16.0.0/24
+    machines:
+        - name: postgres-01
+          users:
+            - name: root
+            - name: laborant
+              default: true
+          drives:
+            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.1
+              mount: /
+          network:
+            interfaces:
+                - network: local
+          resources:
+            cpuCount: 4
+            ramSize: 10GiB
+    tabs:
+        - id: terminal-postgres-01
+          kind: terminal
+          name: postgres-01
+          machine: postgres-01
+    initTasks:
+        init_postgres_01_1:
+            name: init_postgres_01_1
+            machine: postgres-01
+            init: true
+            user: root
+            timeout_seconds: 300
+            run: |-
+                #!/bin/bash
+
+                sudo su postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data initdb"
+
+                sudo mkdir -p /var/log/postgresql
+
+                sudo chown postgres /var/log/postgresql
+
+                sudo su postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/logfile start"
+    accessControl:
+        canList:
+            - anyone
+        canRead:
+            - anyone
+        canStart:
+            - anyone
