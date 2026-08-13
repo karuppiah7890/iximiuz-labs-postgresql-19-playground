@@ -12,6 +12,29 @@ markdown: |-
 
     PostgreSQL 19 Beta 2 Release News - https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/
 
+    # Getting Started
+
+    The PostgreSQL 19 Beta 2 Server is already up and running. To connect to
+    the server and interact with it using SQL queries, just do the following
+
+    ```bash
+    psql -U postgres
+    ```
+
+    # Use Cases
+
+    PostgreSQL is The World's Most Advanced Open Source Relational Database.
+    You can use it to store relational data. You can also use it to store non
+    relational data (NoSQL) with the help of some of it's features and also
+    with the help of extensions
+
+    # References
+    - https://www.postgresql.org
+    - https://www.postgresql.org/about/
+    - https://www.postgresql.org/docs/19/index.html
+    - https://www.postgresql.org/about/news/postgresql-19-beta-1-released-3313/
+    - https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/
+    - https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/
 playground:
     networks:
         - name: local
