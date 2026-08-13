@@ -28,6 +28,27 @@ markdown: |-
     relational data (NoSQL) with the help of some of it's features and also
     with the help of extensions
 
+    # Why this playground?
+
+    You can use it to quickly spin up an Ubuntu VM with PostgreSQL Server
+    installed and up and running and ready to use. Apart from that, please
+    note that PostgreSQL 19 beta versions are not readily available as
+    easily installable packages - for example, you can't do
+    `apt install postgresql-19` yet. Until then, this playground will help
+    you quickly run PostgreSQL 19 Beta version. We build the PostgreSQL 19
+    Beta version from source and provide it as a playground. Once the beta
+    releases are over and a stable release comes up, we'll probably update
+    the playground to use the standard method of installation - the
+    recommended and official method of installation - through official OS
+    packages - in this case, `apt` package - Ubuntu (Debian) Package. To
+    learn how the PostgreSQL 19 Beta version is built from source code,
+    checkout the related GitHub repository powering this playground -
+    https://github.com/karuppiah7890/iximiuz-labs-postgresql-19-playground
+    and look for the `Dockerfile` which holds the information on how to
+    build PostgreSQL 19 Beta version from source and build a container
+    image from it. The container image is used as a custom rootfs image
+    (VM image) for this playground
+
     # References
     - https://www.postgresql.org
     - https://www.postgresql.org/about/
