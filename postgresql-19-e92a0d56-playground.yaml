@@ -8,13 +8,13 @@ categories:
     - linux
     - networking
 markdown: |-
-    PostgreSQL 19 Beta 2. The World's Most Advanced Open Source Relational Database
+    PostgreSQL 19 Beta 3. The World's Most Advanced Open Source Relational Database
 
-    PostgreSQL 19 Beta 2 Release News - https://www.postgresql.org/about/news/postgresql-19-beta-2-released-3350/
+    PostgreSQL 19 Beta 3 Release News - https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/
 
     # Getting Started
 
-    The PostgreSQL 19 Beta 2 Server is already up and running. To connect to
+    The PostgreSQL 19 Beta 3 Server is already up and running. To connect to
     the server and interact with it using SQL queries, just do the following
 
     ```bash
@@ -67,7 +67,7 @@ playground:
             - name: laborant
               default: true
           drives:
-            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.2
+            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.3
               mount: /
           network:
             interfaces:
