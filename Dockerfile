@@ -1,4 +1,4 @@
-FROM ghcr.io/iximiuz/labs/rootfs:ubuntu-24-04
+FROM ghcr.io/iximiuz/labs/rootfs:ubuntu-26-04
 
 WORKDIR /home/laborant
 
