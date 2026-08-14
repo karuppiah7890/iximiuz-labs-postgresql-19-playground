@@ -6,11 +6,11 @@ RUN sudo apt update \
     && sudo apt install -y postgresql-common \
     && sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y \
     && sudo apt update \
-    && echo 'Types: deb\
-URIs: https://apt.postgresql.org/pub/repos/apt\
-Suites: resolute-pgdg\
-Components: main 19\
-Architectures: amd64\
+    && echo 'Types: deb\n\
+URIs: https://apt.postgresql.org/pub/repos/apt\n\
+Suites: resolute-pgdg\n\
+Components: main 19\n\
+Architectures: amd64\n\
 Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg' | sudo tee /etc/apt/sources.list.d/pgdg.sources \
     && sudo apt update \
     && sudo apt install -y postgresql-19 \
