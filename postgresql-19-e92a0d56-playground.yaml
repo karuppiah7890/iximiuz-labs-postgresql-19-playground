@@ -18,7 +18,7 @@ markdown: |-
     the server and interact with it using SQL queries, just do the following
 
     ```bash
-    psql -U postgres
+    sudo -u postgres psql
     ```
 
     # Use Cases
@@ -31,23 +31,7 @@ markdown: |-
     # Why this playground?
 
     You can use it to quickly spin up an Ubuntu VM with PostgreSQL Server
-    installed and up and running and ready to use. Apart from that, please
-    note that PostgreSQL 19 beta versions are not readily available as
-    easily installable packages - for example, you can't do
-    `apt install postgresql-19` yet. Until then, this playground will help
-    you quickly run PostgreSQL 19 Beta version. We build the PostgreSQL 19
-    Beta version from source and provide it as a playground. Once the beta
-    releases are over and a stable release comes up, we'll probably update
-    the playground to use the standard method of installation - the
-    recommended and official method of installation - through official OS
-    packages - in this case, `apt` package - Ubuntu (Debian) Package. To
-    learn how the PostgreSQL 19 Beta version is built from source code,
-    checkout the related GitHub repository powering this playground -
-    https://github.com/karuppiah7890/iximiuz-labs-postgresql-19-playground
-    and look for the `Dockerfile` which holds the information on how to
-    build PostgreSQL 19 Beta version from source and build a container
-    image from it. The container image is used as a custom rootfs image
-    (VM image) for this playground
+    installed and up and running and ready to use
 
     # References
     - https://www.postgresql.org
@@ -67,7 +51,7 @@ playground:
             - name: laborant
               default: true
           drives:
-            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.3
+            - source: oci://ghcr.io/karuppiah7890/iximiuz-labs/playgrounds/postgresql-19:0.0.4
               mount: /
           network:
             interfaces:
@@ -80,23 +64,6 @@ playground:
           kind: terminal
           name: postgres-01
           machine: postgres-01
-    initTasks:
-        init_postgres_01_1:
-            name: init_postgres_01_1
-            machine: postgres-01
-            init: true
-            user: root
-            timeout_seconds: 300
-            run: |-
-                #!/bin/bash
-
-                sudo su postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data initdb"
-
-                sudo mkdir -p /var/log/postgresql
-
-                sudo chown postgres /var/log/postgresql
-
-                sudo su postgres -c "/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l /var/log/postgresql/logfile start"
     accessControl:
         canList:
             - anyone
