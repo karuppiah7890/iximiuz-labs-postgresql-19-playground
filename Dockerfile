@@ -11,7 +11,7 @@ URIs: https://apt.postgresql.org/pub/repos/apt\
 Suites: resolute-pgdg\
 Components: main 19\
 Architectures: amd64\
-Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg' > /etc/apt/sources.list.d/pgdg.sources \
+Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg' | sudo tee /etc/apt/sources.list.d/pgdg.sources \
     && sudo apt update \
     && sudo apt install -y postgresql-19 \
     && sudo systemctl enable postgresql
