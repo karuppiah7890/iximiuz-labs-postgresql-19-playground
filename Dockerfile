@@ -3,34 +3,24 @@ FROM ghcr.io/iximiuz/labs/rootfs:ubuntu-24-04
 WORKDIR /home/laborant
 
 RUN sudo apt update \
-    && sudo apt install -y make pkg-config gcc flex bison libedit-dev libedit2 libreadline-dev perl libperl-dev tcl zlib1g-dev libicu-dev gettext python3 python3-pip python3-venv python3-dev libpython3-dev libpython3.12 docbook-xml docbook-xsl libxml2-utils xsltproc fop
+    && sudo apt install -y postgresql-common \
+    && sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y \
+    && sudo apt update \
+    && echo 'Types: deb\
+URIs: https://apt.postgresql.org/pub/repos/apt\
+Suites: resolute-pgdg\
+Components: main 19\
+Architectures: amd64\
+Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg' > /etc/apt/sources.list.d/pgdg.sources \
+    && sudo apt update \
+    && sudo apt install -y postgresql-19 \
+    && sudo systemctl enable postgresql
 
-RUN wget https://ftp.postgresql.org/pub/source/v19beta3/postgresql-19beta3.tar.gz
-
-RUN tar -xvzf postgresql-19beta3.tar.gz
-
-WORKDIR /home/laborant/postgresql-19beta3
-
-RUN ./configure
-
-RUN make world
-
-RUN make check
-
-RUN sudo make install-world
-
-RUN sudo adduser postgres
-
-RUN sudo mkdir -p /usr/local/pgsql/data
-
-RUN sudo chown postgres /usr/local/pgsql/data
-
-RUN echo 'export PATH="$PATH:/usr/local/pgsql/bin/"' | sudo tee -a /home/laborant/.bashrc && echo 'export PATH="$PATH:/usr/local/pgsql/bin/"' | sudo tee -a /home/postgres/.bashrc && echo 'export PATH="$PATH:/usr/local/pgsql/bin/"' | sudo tee -a /root/.bashrc
-
-WORKDIR /home/laborant
+RUN echo 'export PATH="$PATH:/usr/lib/postgresql/19/bin/"' | sudo tee -a /home/laborant/.bashrc \
+    && echo 'export PATH="$PATH:/usr/lib/postgresql/19/bin/"' | sudo tee -a /root/.bashrc
 
 RUN { echo "Welcome to iximiuz Labs' PostgreSQL 19 Playground! 🚀\n"; \
-      echo "Run \`psql -U postgres\` to connect to the PostgreSQL server\n"; \
+      echo "Run \`sudo -u postgres psql\` to connect to the PostgreSQL server\n"; \
       echo "This is also a Ubuntu Playground! Details below!\n"; \
       cat $HOME/.welcome; \
     } > $HOME/.new_welcome && mv $HOME/.new_welcome $HOME/.welcome
